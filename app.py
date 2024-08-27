@@ -3,7 +3,7 @@ from flask import Flask, send_file
 app = Flask(__name__, static_url_path='/static')
 @app.route('/tiles/<zoom>/<x>/<y>', methods=['GET', 'POST'])
 def tiles(zoom, x, y):
-    default = 'tiles/13/6142/3529.png' # this is a blank tile, change to whatever you want
+    default = 'tiles/14/12298/7064.png' # this is a blank tile, change to whatever you want
     filename = f'tiles/{zoom}/{x}/{y}'
     if os.path.isfile(filename):
        return send_file(filename)
