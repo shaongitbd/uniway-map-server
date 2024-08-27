@@ -1,8 +1,8 @@
 import os.path
 from flask import Flask, send_file
 app = Flask(__name__, static_url_path='/static')
-@app.route('/tiles/<zoom>/<y>/<x>', methods=['GET', 'POST'])
-def tiles(zoom, y, x):
+@app.route('/tiles/<zoom>/<x>/<y>', methods=['GET', 'POST'])
+def tiles(zoom, x, y):
     default = 'tiles/13/6142/3529.png' # this is a blank tile, change to whatever you want
     filename = 'tiles/%s/%s/%s.png' % (zoom, x, y)
     if os.path.isfile(filename):
