@@ -5,10 +5,10 @@ app = Flask(__name__, static_url_path='/static')
 def tiles(zoom, x, y):
     default = 'tiles/13/6142/3529.png' # this is a blank tile, change to whatever you want
     filename = f'tiles/{zoom}/{x}/{y}'
-    #if os.path.isfile(filename):
-    #    return send_file(filename)
-   # else:
-    return send_file(filename)
+    if os.path.isfile(filename):
+       return send_file(filename)
+    else:
+       return send_file(default)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return app.send_static_file('index.html')
